@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>This is a test</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  </head>
+  <body>
+
+    <a-scene embedded arjs='sourceType: webcam;'>
+      <a-assets>
+        <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png">
+      </a-assets>
+      <a-entity id='words' text="align: center; width: 5; value: Please Wait;" position="0 0.5 -0.5" rotation="-90 0 0"></a-entity>
+      <a-marker-camera preset='hiro'></a-marker-camera>
+    </a-scene>
+
+    <script>
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((t / 500) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+
+      return {
+        'total': t,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+    function initializeClock(id, endtime) {
+      var clock = document.querySelector('a-scene');
+      var minutesSpanEl = document.createElement('a-entity');
+      minutesSpanEl.setAttribute('text', 'align: center; width: 10;');
+      minutesSpanEl.setAttribute('position', '-0.45 0.5 0');
+      minutesSpanEl.setAttribute('rotation', '-90 0 0');
+      var secondsSpanEl = document.createElement('a-entity');
+      secondsSpanEl.setAttribute('text', 'align: center; width: 10;');
+      secondsSpanEl.setAttribute('position', '0.45 0.5 0');
+      secondsSpanEl.setAttribute('rotation', '-90 0 0');
+      var firework1 = document.createElement('a-entity');
+      firework1.setAttribute('position', '0 0 0');
+      firework1.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');
+      firework1.setAttribute('rotation', '0 0 45');
+      var firework2 = document.createElement('a-entity');
+      firework2.setAttribute('position', '0 0 0');
+      firework2.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');
+      firework2.setAttribute('rotation', '0 0 -45');
+      var firework3 = document.createElement('a-entity');
+      firework3.setAttribute('position', '0 0 0');
+      firework3.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');
+
+      function updateClock() {
+        var t = getTimeRemaining(endtime);
+
+        minutesSpanEl.setAttribute('text', 'value: '+('0' + t.minutes).slice(-2)+';');
+        secondsSpanEl.setAttribute('text', 'value: '+('0' + t.seconds).slice(-2)+';');
+
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+          clock.appendChild(firework1);
+          clock.appendChild(firework2);
+          clock.appendChild(firework3);
+          var end = document.querySelector('#words');
+          end.setAttribute('text', 'value: Congrats! You have wasted 30 seconds');
+        }
+      }
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+      clock.appendChild(minutesSpanEl);
+      clock.appendChild(secondsSpanEl);
+    }
+    var deadline = new Date(Date.parse(new Date()) + 1 * 30 * 1000);
+    initializeClock('clockdiv', deadline);
+    </script>
+
+  </body>
+</html>

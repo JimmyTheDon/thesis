@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sunrise</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div>
+    <p>Sunrises are a beautiful way to start the day.</p>
+    <p><span id="minutes">00</span>:<span id="seconds">00</span></p>
+    <a id="next" href="../level2/index.html">Continue</a>
+  </div>
+</body>
+<script>
+var seconds = 0;
+var minutes = 0;
+var counter;
+window.addEventListener('scroll', function() {
+  var scrolled = window.scrollY;
+  counter = Math.trunc(scrolled/5317);
+  seconds = Math.trunc((scrolled/5317)%60);
+  minutes = Math.trunc(counter/60);
+  document.getElementById('seconds').innerHTML = ("0" + seconds).slice(-2);
+  document.getElementById('minutes').innerHTML = ("0" + minutes).slice(-2);
+  if (minutes == 15 && seconds == 0) {
+    document.getElementById("next").style.display = "block";
+  } else {
+    document.getElementById("next").style.display = "none";
+  }
+});
+</script>
+</html>
