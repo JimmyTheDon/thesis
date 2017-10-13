@@ -11,16 +11,20 @@
     <a-scene>
       <a-assets>
         <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png">
+        <img id="skyTexture" src="sky.jpg">
         <img id="nextThumbnail" src="imgLink_copy.png">
       </a-assets>
-      <a-camera>
-        s<a-cursor></a-cursor>
-      </a-camera>
       <a-entity id='words' text="align: center; width: 5; value: Please wait until the end;" position="0 3 -3"></a-entity>
           <!--<a-entity id="minutes" text="align: center; width: 10; value: 00" position="-0.45 2 -3"></a-entity>
-          <a-entity id="seconds" text="align: center; width: 10; value: 00" position="0.45 2 -3"></a-entity>-->
-      <a-entity id="plane" geometry="primitive: plane; width: 10000; height: 10000" material="color: #fff; src: #groundTexture; repeat: 10000 10000; transparent: true; metalness: 0.6; roughness: 0.4" rotation="-90 0 0"></a-entity>
-      <a-entity id="sky" geometry="primitive: sphere; radius: 100" material="color: #f49ef7; shader: flat; side: back"></a-entity>
+          <a-entity id="seconds" text="align: center; width: 10; value: 00" position="0.45 2 -3"></a-entity>
+      <a-entity id="plane" geometry="primitive: plane; width: 10000; height: 10000" material="color: #fff; src: #groundTexture; repeat: 10000 10000; transparent: true; metalness: 0.6; roughness: 0.4" rotation="-90 0 0"></a-entity>-->
+      <a-sky src="#skyTexture" radius="30"></a-sky>
+      <a-camera>
+        <a-cursor cursor="fuse: true; fuseTimeout: 1500">
+          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+          <a-animation begin="click" easing="ease-in" attribute="scale" fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+        </a-cursor>
+      </a-camera>
     </a-scene>
 
     <script>
@@ -54,7 +58,7 @@
       firework3.setAttribute('position', '0 0 -5');
       firework3.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');*/
       var nextLink = document.createElement('a-entity')
-      nextLink.setAttribute('link', 'on: collide; href: ../level3/index.html; title: Continue; image: #nextThumbnail');
+      nextLink.setAttribute('link', 'on: click; href: ../level3/index.html; title: Continue; image: #nextThumbnail');
       nextLink.setAttribute('position', '0 2 -7');
       nextLink.setAttribute('id', 'next');
       function updateClock() {
@@ -67,6 +71,7 @@
           clock.appendChild(firework2);
           clock.appendChild(firework3);*/
           clock.appendChild(nextLink);
+          document.querySelector('#next').navigate('../level3/index.html');
           var end = document.querySelector('#words');
           end.setAttribute('text', 'value: Congrats! You have wasted 30 seconds');
         }
