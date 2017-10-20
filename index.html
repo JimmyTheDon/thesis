@@ -30,9 +30,32 @@
     <h3>Welcome</h3>
     <p>Follow the instructions and find patience somewhere on this site. Please point camera towards marker to continue.</p>
   </div>
+  <a-assets>
+    <img id="thumb" crossorigin="anonymous" src="thumb-01.jpg">
+    <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+  </a-assets>
+
   <a-scene style=" position: fixed; top: 0; left: 0; z-index: 1; overflow: none;" embedded arjs='sourceType: webcam;'>
     <a-marker-camera type='pattern' patternUrl='pattern-marker.patt'></a-marker-camera>
     <a-marker type='pattern' patternUrl='pattern-marker.patt'></a-marker>
+
+    <a-entity class="link"
+            link="on: click; href: level1/index.html"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: #thumb"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            sound="on: click; src: #click-sound">
+    </a-entity>
+
+    <a-camera>
+        <a-cursor id="cursor"></a-cursor>
+    </a-camera>
   </a-scene>
+  <script>
+    document.querySelector('a-entity').navigate('level1/index.html');
+  </script>
 </body>
 </html>
