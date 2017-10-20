@@ -29,15 +29,23 @@
       var now;
       var xPos;
 	    var yPos;
+      var counter=0;
+      var n = Math.floor((Math.random() * 20) + 10);
       $(document).ready(function(){
         $('#static').hide();
         $(document).click(function(e){
-          xPos = e.pageX;
-		      yPos = e.pageY;
-          now = new Date().toLocaleTimeString();
-          $('#prompt').hide();
-          $('#static').fadeIn();
-		      $('#container').append('<p style="top: ' + yPos +'px; left:' + xPos + 'px; position: absolute; font-size: 2em;touch-callout; none; user-select: none;">'+now+'</p>')
+          if (counter == n) {
+            $('#container').append('<p style="top: ' + yPos +'px; left:' + xPos + 'px; position: absolute; font-size: 2em;touch-callout; none; user-select: none;"><a href="../level6/index.html">Continue</a></p>');
+            $("html, body").animate({ scrollTop: $(document).height() }, 250);
+          } else {
+            counter = counter+1;
+            xPos = e.pageX;
+		        yPos = e.pageY;
+            now = new Date().toLocaleTimeString();
+            $('#prompt').hide();
+            $('#static').fadeIn();
+		        $('#container').append('<p style="top: ' + yPos +'px; left:' + xPos + 'px; position: absolute; font-size: 2em;touch-callout; none; user-select: none;">'+now+'</p>')
+          }
 	      });
       });
     </script>

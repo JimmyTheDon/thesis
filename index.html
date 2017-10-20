@@ -2,10 +2,36 @@
 <html>
 <head>
   <title>Search For Patience</title>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+  <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  <style>
+    #arjsDebugUIContainer, .a-enter-vr{
+      display: none;
+    }
+    p, h1 {
+      margin: auto;
+      line-height: 1.75em;
+      width: 250px;
+    }
+    #intro {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      padding: 25px 0 25px 0;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome</h1>
-  <p>The game here is simple, follow the instructions and find patience somewhere on this site.</p>
-  <p>Click <a href="level1/index.html">here</a> to begin.</p>
+  <div id="intro">
+    <h1>Welcome</h1>
+    <p>The game here is simple, follow the instructions and find patience somewhere on this site. Please point camera towards marker to continue.</p>
+  </div>
+  <a-scene style=" position: fixed; top: 0; left: 0; z-index: 1; overflow: none;" embedded arjs='sourceType: webcam;'>
+    <a-marker-camera preset='hiro'></a-marker-camera>
+  </a-scene>
 </body>
 </html>
