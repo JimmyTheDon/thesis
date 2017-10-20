@@ -4,11 +4,9 @@
   <title>Search For Patience</title>
   <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
   <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-  <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
   <style>
     #arjsDebugUIContainer, .a-enter-vr{
-      display: none;
+      /*display: none;*/
     }
     p, h3 {
       margin: auto;
@@ -30,32 +28,24 @@
     <h3>Welcome</h3>
     <p>Follow the instructions and find patience somewhere on this site. Please point camera towards marker to continue.</p>
   </div>
-  <a-assets>
-    <img id="thumb" crossorigin="anonymous" src="thumb-01.jpg">
-    <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-  </a-assets>
 
   <a-scene style=" position: fixed; top: 0; left: 0; z-index: 1; overflow: none;" embedded arjs='sourceType: webcam;'>
-    <a-marker-camera type='pattern' patternUrl='pattern-marker.patt'></a-marker-camera>
-    <a-marker type='pattern' patternUrl='pattern-marker.patt'></a-marker>
+    <a-assets>
+      <img id="thumb" crossorigin="anonymous" src="thumb-01.jpg">
+      <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    </a-assets>
 
-    <a-entity class="link"
-            link="on: click; href: level1/index.html"
-            geometry="primitive: plane; height: 1; width: 1"
-            material="shader: flat; src: #thumb"
-            event-set__1="_event: mousedown; scale: 1 1 1"
-            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-            event-set__4="_event: mouseleave; scale: 1 1 1"
-            sound="on: click; src: #click-sound">
-    </a-entity>
-
+    <a-marker type='pattern' patternUrl='pattern-marker.patt'>
+      <a-entity
+              position="0 0.5 -1.5" rotation="-90 0 0"
+              geometry="primitive: plane; height: 1; width: 1"
+              material="shader: flat; src: #thumb"
+              sound="on: click; src: #click-sound">
+      </a-entity>
+    </a-marker>
     <a-camera>
         <a-cursor id="cursor"></a-cursor>
     </a-camera>
   </a-scene>
-  <script>
-    document.querySelector('a-entity').navigate('level1/index.html');
-  </script>
 </body>
 </html>
