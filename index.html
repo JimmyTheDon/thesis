@@ -31,7 +31,8 @@
     <p>Follow the instructions and find patience somewhere on this site. Please point camera towards marker to continue.</p>
   </div>
   <a-scene style=" position: fixed; top: 0; left: 0; z-index: 1; overflow: none;" embedded arjs='sourceType: webcam;'>
-    <a-marker-camera preset='hiro'></a-marker-camera>
+    <a-marker-camera type='pattern' patternUrl='pattern-marker.patt'></a-marker-camera>
+    <a-marker type='pattern' patternUrl='pattern-marker.patt'></a-marker>
   </a-scene>
 </body>
 </html>
