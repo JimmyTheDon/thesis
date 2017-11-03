@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Search For Patience</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <style id="clock-animations"></style>
+</head>
+<body>
+  <div class="clock-wrapper">
+        <div class="clock-base">
+            <!-- <div class="click-indicator">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div> -->
+            <div class="clock-hour"></div>
+            <div class="clock-minute"></div>
+            <div class="clock-second"></div>
+            <div class="clock-center"></div>
+        </div>
+    </div>
+    <p id="prompt">Please wait <span id='seconds'>0</span> minutes</p>
+    <script src="js/index.js"></script>
+    <script>
+      var time = Math.floor(Math.random() * 5) + 5;  // returns a number between 1 and 10
+      document.getElementById('seconds').innerHTML = time;
+    </script>
+</body>
+</html>
