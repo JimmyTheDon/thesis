@@ -2,9 +2,18 @@ body {
   margin: 0 auto;
   min-height: 9570000px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b2438+0,ff9021+50,2a9cf9+100 */
-  background-color: : #0b2438; /* Old browsers */
-  background: linear-gradient(to bottom,  #0b2438 0%,#ff9021 50%,#2a9cf9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-color: : #0b2438; /*Old browsers*/
+  background: linear-gradient(to bottom,  #0b2438 0%,#ff9021 50%,#2a9cf9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+*/
 }
+/*body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+.scroll {
+  overflow: auto;
+  height: 100%;
+}*/
 div {
   width: 100%;
   text-align: center;
@@ -14,3 +23,14 @@ div {
   top: 50%;
   transform: translateY(-50%);
 }
+/*@media only screen and (max-width: 768px) {
+  body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  .scroll {
+    overflow: auto;
+    height: 100%;
+  }
+}*/
