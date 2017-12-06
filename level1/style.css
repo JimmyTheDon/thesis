@@ -1,9 +1,12 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Quantico');
+*{
+  font-family: 'Quantico', monospace;
+}
+
+html, body {
   margin: 0 auto;
   min-height: 9570000px;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b2438+0,ff9021+50,2a9cf9+100 */
-  background-color: : #0b2438; /*Old browsers*/
-  background: linear-gradient(to bottom,  #0b2438 0%,#ff9021 50%,#2a9cf9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+*/
+  overflow: auto;
 }
 /*body {
   height: 100%;

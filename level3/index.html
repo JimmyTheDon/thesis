@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Search For Patience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <style>
       #container div {
@@ -29,17 +30,19 @@
   <body>
     <div id="container" style="width: 100%;"><div id="prompt"><p>Click to Begin</p></div></div>
     <script>
+      //generate random link with variables
       var now;
       var counter=0;
       var n = Math.floor((Math.random() * 20) + 10);
       var start = new Date().toLocaleTimeString();
+      var linkURL = ["../level1/index.html", "../level6/index.html", "#"];
       $(document).ready(function(){
         $(document).click(function(){
           now = new Date().toLocaleTimeString();
             $('#prompt').hide();
             counter = counter+1;
             if (counter == n) {
-              $('#container').append('<div><p>Click below to<br><span><a href="../level4/index.html">Continue</a></span><br>You have been here since '+start+'</p></div>');
+              $('#container').append('<div><p>Click below to<br><span><a href="'+linkURL[Math.floor(Math.random()*3)]+'">Continue</a></span><br>You have been here since '+start+'</p></div>');
               $("html, body").animate({ scrollTop: $(document).height() }, 250);
             } else {
               $('#container').append('<div><p>Current Time<br><span>'+now+'</span><br>You have been here since '+start+'</p></div>');

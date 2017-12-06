@@ -1,7 +1,7 @@
 (function(){
 
   //generate clock animations
-  var now       = new Date(),
+  var now   = new Date(),
   hourDeg   = now.getHours() / 12 * 360 + now.getMinutes() / 60 * 30,
   minuteDeg = now.getMinutes() / 60 * 360 + now.getSeconds() / 60 * 6,
   secondDeg = now.getSeconds() / 60 * 360,

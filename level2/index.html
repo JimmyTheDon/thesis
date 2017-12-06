@@ -5,6 +5,9 @@
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <style>
+      *{font-family: 'Quantico', monospace;}
+    </style>
   </head>
   <body>
     <a style="position: fixed; z-index: 10;" href="https://www.flickr.com/photos/nikonfdslr/">Photo Credits: Allen Baxter</a>
@@ -14,7 +17,7 @@
         <img id="skyTexture" src="sky.jpg">
         <img id="nextThumbnail" src="imgLink_copy.png">
       </a-assets>
-      <a-entity id='words' text="align: center; width: 5; value: Please wait until the end;" position="0 3 -3"></a-entity>
+      <a-entity id='words' text="align: center; width: 5; value: Please wait until the end; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/quantico/Quantico-Regular.json;" position="0 3 -3"></a-entity>
           <!--<a-entity id="minutes" text="align: center; width: 10; value: 00" position="-0.45 2 -3"></a-entity>
           <a-entity id="seconds" text="align: center; width: 10; value: 00" position="0.45 2 -3"></a-entity>
           <a-entity id="plane" geometry="primitive: plane; width: 10000; height: 10000" material="color: #fff; src: #groundTexture; repeat: 10000 10000; transparent: true; metalness: 0.6; roughness: 0.4" rotation="-90 0 0"></a-entity>-->
@@ -28,6 +31,9 @@
     </a-scene>
 
     <script>
+
+    var linkURL = ["../level1/index.html", "../level4/index.html", "../level5/index.html", "../level6/index.html", "#"];
+
     function getTimeRemaining(endtime) {
       var t = Date.parse(endtime) - Date.parse(new Date());
       var seconds = Math.floor((t / 1000) % 60);
@@ -41,24 +47,13 @@
     function initializeClock(id, endtime) {
       var clock = document.querySelector('a-scene');
       var minutesSpanEl = document.createElement('a-entity');
-      minutesSpanEl.setAttribute('text', 'align: center; width: 10;');
+      minutesSpanEl.setAttribute('text', 'align: center; width: 10; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/quantico/Quantico-Regular.json;');
       minutesSpanEl.setAttribute('position', '-0.45 2 -3');
       var secondsSpanEl = document.createElement('a-entity');
-      secondsSpanEl.setAttribute('text', 'align: center; width: 10;');
+      secondsSpanEl.setAttribute('text', 'align: center; width: 10; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/quantico/Quantico-Regular.json;');
       secondsSpanEl.setAttribute('position', '0.45 2 -3');
-      /*var firework1 = document.createElement('a-entity');
-      firework1.setAttribute('position', '0 0 -5');
-      firework1.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');
-      firework1.setAttribute('rotation', '0 0 45');
-      var firework2 = document.createElement('a-entity');
-      firework2.setAttribute('position', '0 0 -5');
-      firework2.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');
-      firework2.setAttribute('rotation', '0 0 -45');
-      var firework3 = document.createElement('a-entity');
-      firework3.setAttribute('position', '0 0 -5');
-      firework3.setAttribute('particle-system','preset: default; color: #222; particleCount: 1000;');*/
       var nextLink = document.createElement('a-entity')
-      nextLink.setAttribute('link', 'on: click; href: ../level3/index.html; title: Continue; image: #nextThumbnail');
+      nextLink.setAttribute('link', 'on: click; href: '+linkURL[Math.floor(Math.random()*5)]+'; title: Continue;'); //image: #nextThumbnail
       nextLink.setAttribute('position', '0 2 -7');
       nextLink.setAttribute('id', 'next');
       function updateClock() {
@@ -67,21 +62,19 @@
         secondsSpanEl.setAttribute('text', 'value: '+('0' + t.seconds).slice(-2)+';');
         if (t.total <= 0) {
           clearInterval(timeinterval);
-          /*clock.appendChild(firework1);
-          clock.appendChild(firework2);
-          clock.appendChild(firework3);*/
           clock.appendChild(nextLink);
-          document.querySelector('#next').navigate('../level3/index.html');
+          document.querySelector('#next').navigate(linkURL[Math.floor(Math.random()*5)]);
           var end = document.querySelector('#words');
-          end.setAttribute('text', 'value: Congrats! You have wasted 30 seconds');
+          end.setAttribute('text', 'value: Congrats! Please continue.');
         }
+        //add other links below at other times
       }
       updateClock();
       var timeinterval = setInterval(updateClock, 1000);
       clock.appendChild(minutesSpanEl);
       clock.appendChild(secondsSpanEl);
     }
-    var deadline = new Date(Date.parse(new Date()) + 1 * 20 * 1000);
+    var deadline = new Date(Date.parse(new Date()) + 5 * 60 * 1000);
     initializeClock('clockdiv', deadline);
     </script>
 

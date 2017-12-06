@@ -57,7 +57,8 @@ $(window).on('keydown', function(e) {
     return false;
   }
 })
-
+//generate random link with variables inser into below
+var linkURL = ["../level2/index.html", "../level5/index.html", "../level6/index.html", "../level8/index.html", "../level9/index.html", "../end/index.html", "#"];
 var Fake = [
   'Hi there. How may I help you today?',
   // '<div class="loading"></div>'
@@ -71,7 +72,7 @@ var Fake = [
   'Please bear with me.',
   'Just a few more minutes.',
   'Wow, you\'re awfully impatient aren\'t you.',
-  '<a href="https://www.google.com">Continue</a>'
+  '<a href="'+linkURL[Math.floor(Math.random()*7)]+'">Continue</a>'
 ]
 
 
