@@ -39,7 +39,7 @@
       var linkURL = ["../level1/index.html", "../level8/index.html", "../level3/index.html", "../level4/index.html", "../level2/index.html", "index.html"];
       var time = Math.floor(Math.random() * 5) + 5;  // returns a number between 1 and 10
       document.getElementById('seconds').innerHTML = time;
-      var timeleft = 10;//time * 90 * 1000;
+      var timeleft = time * 90 * 1000;
       var downloadTimer = setInterval(function(){
         console.log(timeleft);
         timeleft--;
