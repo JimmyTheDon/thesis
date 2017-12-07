@@ -10,7 +10,7 @@ function createDivs() {
   }
 }
 //generate random link with variables
-var linkURL = ["../level5/index.html", "../level9/index.html", "../level3/index.html", "../level6/index.html", "../level2/index.html", "#"];
+var linkURL = ["../level5/index.html", "../level9/index.html", "../level3/index.html", "../level6/index.html", "../level2/index.html", "index.html"];
 $(document).ready(function() {
   createDivs();
   alert('Tap to proceed')

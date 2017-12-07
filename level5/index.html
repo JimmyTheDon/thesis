@@ -8,6 +8,8 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="jquery.ui.touch-punch.min.js"></script>
   <style>
+  @import url('https://fonts.googleapis.com/css?family=Quantico');
+  *{font-family: 'Quantico', monospace;}
   body {
     margin: 0;
     width: 100%;
@@ -21,7 +23,6 @@
     touch-callout; none;
     user-select: none;
     font-size: 2em;
-    font-family: monospace;
     display: inline-block;
   }
   .draggable {
@@ -35,7 +36,7 @@
   <div id="prompt">Drag the time</div>
   <script>
   //generate random link with variables
-  var linkURL = ["../level2/index.html", "../level4/index.html", "../level6/index.html", "../level7/index.html", "../level8/index.html", "#"];
+  var linkURL = ["../level2/index.html", "../level4/index.html", "../level6/index.html", "../level7/index.html", "../level8/index.html", "index.html"];
   function updateClock ( ){
     var currentTime = new Date().toLocaleTimeString();
     $("#clock").html(currentTime);

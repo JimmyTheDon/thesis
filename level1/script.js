@@ -12,7 +12,8 @@ var randSec2 = Math.floor(Math.random() * 60);
 var randSec3 = Math.floor(Math.random() * 60);
 var endMin = 29;
 var endSec = 59;
-var link = 0;
+var linkURL = ["../level8/index.html", "../level3/index.html", "../level4/index.html", "../level5/index.html", "../level2/index.html", "index.html", "index.html", "index.html", "index.html", "index.html", "index.html", "index.html", "index.html"];
+var linkURLfinal = ["../level9/index.html", "../level7/index.html", "../level2/index.html", "../level2/index.html", "../level2/index.html", "../level2/index.html"];
 
 // if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
 // window.onmousewheel = document.onmousewheel = wheel;
@@ -33,7 +34,7 @@ var link = 0;
 // }
 
 window.addEventListener('scroll', function() {
-  // alert(randMin1+','+randMin2+','+randMin3+','+randMin4+','+randMin5+','+randMin6+',');
+  // console.log(randMin1+','+randMin2+','+randMin3+','+randMin4+','+randMin5+','+randMin6+','+randSec1);
   // alert("Hello! I am an alert box!");
   document.getElementById('prompt').style.display = "none";
   document.getElementById('time').style.display = "block";
@@ -82,3 +83,10 @@ window.addEventListener('scroll', function() {
     document.getElementById("next").style.display = "none";
   }
 });
+function otherLink() {
+  window.location=linkURL[Math.floor(Math.random()*13)];
+}
+
+function finalLink() {
+  window.location=linkURLfinal[Math.floor(Math.random()*6)];
+}

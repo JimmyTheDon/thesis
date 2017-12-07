@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Search For Patience</title>
+  <link rel="icon" type="image" href="../icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
   <link rel="stylesheet" href="css/style.css">
   <meta charset="utf-8">
@@ -32,10 +33,22 @@
         </div>
     </div>
     <p id="prompt">Please wait <span id='seconds'>0</span> minutes</p>
+
     <script src="js/index.js"></script>
     <script>
+      var linkURL = ["../level1/index.html", "../level8/index.html", "../level3/index.html", "../level4/index.html", "../level2/index.html", "index.html"];
       var time = Math.floor(Math.random() * 5) + 5;  // returns a number between 1 and 10
       document.getElementById('seconds').innerHTML = time;
+      var timeleft = 10;//time * 90 * 1000;
+      var downloadTimer = setInterval(function(){
+        console.log(timeleft);
+        timeleft--;
+        if(timeleft < 0) {
+          clearInterval(downloadTimer);
+          document.getElementById('prompt').remove();
+          document.body.innerHTML+= "<p id='prompt'><a href='"+linkURL[Math.floor(Math.random()*6)]+"'>Continue</a></p>";
+        }
+      },1000);
     </script>
 </body>
 </html>

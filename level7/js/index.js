@@ -58,7 +58,7 @@ $(window).on('keydown', function(e) {
   }
 })
 //generate random link with variables inser into below
-var linkURL = ["../level2/index.html", "../level5/index.html", "../level6/index.html", "../level8/index.html", "../level9/index.html", "../end/index.html", "#"];
+var linkURL = ["../level2/index.html", "../level5/index.html", "../level6/index.html", "../level8/index.html", "../level9/index.html", "../end/index.html", "index.html"];
 var Fake = [
   'Hi there. How may I help you today?',
   // '<div class="loading"></div>'
@@ -80,7 +80,7 @@ function fakeMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
-  if (i >= 4 && i <= 9) {
+  if (i >= 4 && i < 10) {
     $('<div class="message loading new"><figure class="avatar"><img src="./ben.png"/></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
     setTimeout(function() {
@@ -91,8 +91,8 @@ function fakeMessage() {
       updateScrollbar();
       counter++;
     }, 1000 + (Math.random() * 20) * 100);
-    if (counter === 20){i=10}
-  } else {
+    if (counter == 20){i=10}
+  } else if (i < 12) {
     $('<div class="message loading new"><figure class="avatar"><img src="./ben.png"/></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
     setTimeout(function() {
@@ -102,6 +102,15 @@ function fakeMessage() {
       updateScrollbar();
       i++;
 
+    }, 1000 + (Math.random() * 20) * 100);
+  } else {
+    $('<div class="message loading new"><figure class="avatar"><img src="./ben.png"/></figure><span></span></div>').appendTo($('.mCSB_container'));
+    updateScrollbar();
+    setTimeout(function() {
+      $('.message.loading').remove();
+      $('<div class="message new"><figure class="avatar"><img src="./ben.png"/></figure>Thank you. You may continue <a href="'+linkURL[Math.floor(Math.random()*7)]+'">here</a>.</div>').appendTo($('.mCSB_container')).addClass('new');
+      setDate();
+      updateScrollbar();
     }, 1000 + (Math.random() * 20) * 100);
   }
 }

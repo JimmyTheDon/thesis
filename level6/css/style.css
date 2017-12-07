@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quantico');
+*{font-family: 'Quantico', monospace;}
 html,body{
             height: 100%;
             margin: 0;

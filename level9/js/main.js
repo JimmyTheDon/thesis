@@ -101,7 +101,7 @@ var initial = 300000;
 var count = initial;
 var counter; //10 will  run it every 100th of a second
 var initialMillis;
-var linkURL = ["../end/index.html", "../level7/index.html", "../level5/index.html", "../level6/index.html", "../level2/index.html", "../level8/index.html", "#"];
+var linkURL = ["../end/index.html", "../level7/index.html", "../level5/index.html", "../level6/index.html", "../level2/index.html", "../level8/index.html", "index.html"];
 
 function timer() {
     if (count <= 0) {

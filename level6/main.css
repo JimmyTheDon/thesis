@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Quantico');
+*{font-family: 'Quantico', monospace;}
+
 .clock {
   transform: scale(2);
   border-radius: 50%;

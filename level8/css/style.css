@@ -1,7 +1,5 @@
-@font-face {
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/decade.ttf");
-  font-family: Decade;
-}
+@import url('https://fonts.googleapis.com/css?family=Quantico');
+*{font-family: 'Quantico', monospace;}
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
@@ -181,7 +179,6 @@ html, body {
           transform: translateX(-50%) translateY(-50%);
   font-size: 3.5rem;
   color: #fff;
-  font-family: monospace;
 }
 
 .nav-panel {
@@ -283,7 +280,6 @@ html, body {
   width: 100%;
   text-align: center;
   color: #fff;
-  font-family: Decade;
   font-size: 1rem;
   text-transform: uppercase;
 }

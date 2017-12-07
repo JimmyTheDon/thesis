@@ -2,9 +2,12 @@
 <html>
   <head>
     <title>Search For Patience</title>
+    <link rel="icon" type="image" href="../icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Quantico');
+    *{font-family: 'Quantico', monospace;}
       #container div {
         width: 100%;
         height: 100vh;
@@ -20,7 +23,6 @@
         text-align: center;
         font-size: 2em;
         line-height: 3em;
-        font-family: monospace;
       }
       span {
         font-size: 4em;
@@ -35,7 +37,7 @@
       var counter=0;
       var n = Math.floor((Math.random() * 20) + 10);
       var start = new Date().toLocaleTimeString();
-      var linkURL = ["../level1/index.html", "../level6/index.html", "#"];
+      var linkURL = ["../level1/index.html", "../level6/index.html", "index.html"];
       $(document).ready(function(){
         $(document).click(function(){
           now = new Date().toLocaleTimeString();
