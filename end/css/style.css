@@ -3,7 +3,7 @@
   font-family: 'Quantico', monospace;
   overflow: hidden;
 }
-body{
+html, body{
   overflow: hidden !important;
 }
 :root {
