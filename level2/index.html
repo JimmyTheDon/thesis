@@ -17,7 +17,7 @@
       <a-assets>
         <img id="groundTexture" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png">
         <img id="skyTexture" src="sky.jpg">
-        <img id="nextThumbnail" src="imgLink_copy.png">
+        <img id="nextThumbnail" src="imgLink.png">
       </a-assets>
       <a-entity id='words' text="align: center; width: 5; value: Please wait until the end; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/quantico/Quantico-Regular.json;" position="0 3 -3"></a-entity>
           <!--<a-entity id="minutes" text="align: center; width: 10; value: 00" position="-0.45 2 -3"></a-entity>
@@ -55,20 +55,32 @@
       secondsSpanEl.setAttribute('text', 'align: center; width: 10; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/quantico/Quantico-Regular.json;');
       secondsSpanEl.setAttribute('position', '0.45 2 -3');
       var nextLink = document.createElement('a-entity')
-      nextLink.setAttribute('link', 'on: click; href: '+linkURL[Math.floor(Math.random()*5)]+'; title: Continue;'); //image: #nextThumbnail
+      nextLink.setAttribute('link', 'on: click; href: '+linkURL[Math.floor(Math.random()*3)+2]+'; title: Continue;'); //image: #nextThumbnail
       nextLink.setAttribute('position', '0 2 -7');
       nextLink.setAttribute('id', 'next');
+      var nextLinkfalse1 = document.createElement('a-entity')
+      nextLinkfalse1.setAttribute('link', 'on: click; href: '+linkURL[0]+'; title: Continue; image: #nextThumbnail');
+      nextLinkfalse1.setAttribute('position', '-4 2 -5');
+      nextLinkfalse1.setAttribute('id', 'next');
+      var nextLinkfalse2 = document.createElement('a-entity')
+      nextLinkfalse2.setAttribute('link', 'on: click; href: '+linkURL[4]+'; title: Continue; image: #nextThumbnail');
+      nextLinkfalse2.setAttribute('position', '4 2 -5');
+      nextLinkfalse2.setAttribute('id', 'next');
       function updateClock() {
         var t = getTimeRemaining(endtime);
         minutesSpanEl.setAttribute('text', 'value: '+('0' + t.minutes).slice(-2)+';');
         secondsSpanEl.setAttribute('text', 'value: '+('0' + t.seconds).slice(-2)+';');
         console.log(t.total);
-        if (t.total <= 200000) {}
-        if (t.total <= 100000) {}
+        if (t.total == 200000) {
+          clock.appendChild(nextLinkfalse1);
+        }
+        if (t.total == 100000) {
+          clock.appendChild(nextLinkfalse2);
+        }
         if (t.total <= 0) {
           clearInterval(timeinterval);
           clock.appendChild(nextLink);
-          document.querySelector('#next').navigate(linkURL[Math.floor(Math.random()*5)]);
+          // document.querySelector('#next').navigate(linkURL[Math.floor(Math.random()*3)+2]);
           var end = document.querySelector('#words');
           end.setAttribute('text', 'value: Congrats! Please continue.');
         }
