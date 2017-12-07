@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Quantico');
-* {font-family: 'Quantico', monospace;}
+* {
+  font-family: 'Quantico', monospace;
+  overflow: hidden;
+}
 body{
   overflow: hidden;
 }
