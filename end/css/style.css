@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quantico');
 * {
   font-family: 'Quantico', monospace;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 html, body{
   overflow: hidden !important;
@@ -87,5 +87,12 @@ p {
   width: 1rem;
   height: 1.5rem;
   animation: confettiRain 10s infinite;
+}
+#confetti-wrapper{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
 /*confetti*/
