@@ -89,6 +89,7 @@ p {
   animation: confettiRain 10s infinite;
 }
 #confetti-wrapper{
+  z-index: 0;
   position: fixed;
   width: 100vw;
   height: 100vh;
