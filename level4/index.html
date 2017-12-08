@@ -5,10 +5,14 @@
     <link rel="icon" type="image" href="../icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
       @import url('https://fonts.googleapis.com/css?family=Quantico');
       *{
         font-family: 'Quantico', monospace;
+      }
+      html, body {
+        overflow: hidden;
       }
 
       #container div {
@@ -27,9 +31,17 @@
         font-size: 4em;
         line-height: 3em;
       }
+      .clickable{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
     </style>
   </head>
   <body>
+    <div class="clickable"></div>
     <div id="container" style="width: 100%;"><div><p id="prompt">Click to Begin</p><p id="static">The time is currently</p></div></div>
     <script>
       //generate random link with variables
@@ -41,7 +53,7 @@
       var linkURL = ["../level1/index.html", "../level2/index.html", "index.html"];
       $(document).ready(function(){
         $('#static').hide();
-        $(document).click(function(e){
+        $('.clickable').mousedown(function(e){
           if (counter == n) {
             $('#container').append('<p style="top: ' + yPos +'px; left:' + xPos + 'px; position: absolute; font-size: 2em;touch-callout; none; user-select: none;"><a href="'+linkURL[Math.floor(Math.random()*3)]+'">Continue</a></p>');
             $("html, body").animate({ scrollTop: $(document).height() }, 250);
@@ -58,5 +70,36 @@
 	      });
       });
     </script>
+    <script>
+    function touchHandler(event)
+    {
+      var touches = event.changedTouches,
+      first = touches[0],
+      type = "";
+      switch(event.type)
+      {
+        case "touchstart": type = "mousedown"; break;
+        case "touchmove":  type="mousemove"; break;
+        case "touchend":   type="mouseup"; break;
+        default: return;
+      }
+
+      var simulatedEvent = document.createEvent("MouseEvent");
+      simulatedEvent.initMouseEvent(type, true, true, window, 1,
+        first.screenX, first.screenY,
+        first.clientX, first.clientY, false,
+        false, false, false, 0/*left*/, null);
+        first.target.dispatchEvent(simulatedEvent);
+        event.preventDefault();
+      }
+
+      function init()
+      {
+        document.addEventListener("touchstart", touchHandler, true);
+        document.addEventListener("touchmove", touchHandler, true);
+        document.addEventListener("touchend", touchHandler, true);
+        document.addEventListener("touchcancel", touchHandler, true);
+      }
+      </script>
   </body>
 </html>

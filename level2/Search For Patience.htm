@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<!-- saved from url=(0066)file:///Users/jimmydon/Desktop/searchforpatience/level3/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Search For Patience</title>
-    <link rel="icon" type="image" href="../icon.png">
+    <link rel="icon" type="image" href="file:///Users/jimmydon/Desktop/searchforpatience/icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./Search For Patience_files/jquery-1.10.2.js"></script>
+    <script src="./Search For Patience_files/jquery-ui.js"></script>
     <style>
     @import url('https://fonts.googleapis.com/css?family=Quantico');
     *{font-family: 'Quantico', monospace;}
@@ -37,9 +37,9 @@
       }
     </style>
   </head>
-  <body>
+  <body style="">
     <div class="clickable"></div>
-    <div id="container" style="width: 100%;"><div id="prompt"><p>Click to Begin</p></div></div>
+    <div id="container" style="width: 100%;"><div id="prompt" style="display: none;"><p>Click to Begin</p></div><div><p>Current Time<br><span>2:46:41 PM</span><br>You have been here since 2:46:41 PM</p></div><div><p>Current Time<br><span>2:46:42 PM</span><br>You have been here since 2:46:41 PM</p></div><div><p>Current Time<br><span>2:46:42 PM</span><br>You have been here since 2:46:41 PM</p></div><div><p>Current Time<br><span>2:46:43 PM</span><br>You have been here since 2:46:41 PM</p></div><div><p>Current Time<br><span>2:46:43 PM</span><br>You have been here since 2:46:41 PM</p></div><div><p>Current Time<br><span>2:46:43 PM</span><br>You have been here since 2:46:41 PM</p></div></div>
     <script>
       //generate random link with variables
       var now;
@@ -48,7 +48,7 @@
       var start = new Date().toLocaleTimeString();
       var linkURL = ["../level1/index.html", "../level6/index.html", "index.html"];
       $(document).ready(function(){
-        $('.clickable').mousedown(function(){
+        $('body').mousedown(function(){
           now = new Date().toLocaleTimeString();
             $('#prompt').hide();
             counter = counter+1;
@@ -93,5 +93,6 @@
         document.addEventListener("touchcancel", touchHandler, true);
       }
       </script> -->
-  </body>
-</html>
+  
+
+</body></html>

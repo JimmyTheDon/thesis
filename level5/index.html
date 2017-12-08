@@ -56,7 +56,7 @@
         $(this).after($(ui.helper).clone().draggable({containment: ".all", scroll: false
       }));
     });
-    $(document).mousedown(function() {
+    $(document).click(function() {
       if (n==rand) {
         $('.draggable').remove();
         $('#prompt').remove();
@@ -68,7 +68,7 @@
     });
   });
   </script>
-  <script>
+  <!-- <script>
   function touchHandler(event)
   {
     var touches = event.changedTouches,
@@ -98,6 +98,6 @@
       document.addEventListener("touchend", touchHandler, true);
       document.addEventListener("touchcancel", touchHandler, true);
     }
-    </script>
+    </script> -->
   </body>
   </html>

@@ -66,7 +66,7 @@ $(document).ready(function() {
     }
   }
 
-  $(document).click( function(e) {
+  $('.scene').mousedown( function(e) {
     // alert("mousewheel event triggered");
     if (!scrolling) {
       if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
