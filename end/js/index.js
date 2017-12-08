@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 		doc.text(5.9372, 3.1996, person, 'center');
     doc.text(5.9372, 3.7003, month[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear(), 'center');
-		doc.save('test.pdf');
+		doc.save(person +"'s Certificate of Completion.pdf");
 
 	});
 });
