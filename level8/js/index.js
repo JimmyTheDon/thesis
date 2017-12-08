@@ -75,7 +75,7 @@ $(document).ready(function() {
         navigateDown();
       }
     }
-    if (curPage > 300) {
+    if (curPage == 300) {
       $('.scene').remove();
       $('body').append('<a href="'+linkURL[Math.floor(Math.random()*6)]+'"><h2 class="heading">Continue</h2></a>');
     }
